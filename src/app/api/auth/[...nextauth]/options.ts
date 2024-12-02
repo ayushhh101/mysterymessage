@@ -61,7 +61,7 @@ export const authOptions: NextAuthOptions = {
 
       return token
     },
-    //token ki info session me share kardi
+    //token ki info session me jaakar user object bhar kar usme values share kardi
     async session({ session, token }) {
       if(token){
         session.user._id = token._id
