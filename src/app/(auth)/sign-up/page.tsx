@@ -74,7 +74,7 @@ const page = () => {
         title: 'Success',
         description: response.data.message
       })
-      //user ko redirect kardega
+      //user ko redirect kardega to verify
       router.replace(`/verify/${username}`)
       setIsSubmitting(false)
     } catch (error) {
