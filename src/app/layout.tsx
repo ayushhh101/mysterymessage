@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 //wrapping auth provider context for the whole body
+import './globals.css'
+import AuthProvider from "@/context/AuthProvider";
+import { Toaster } from "@/components/ui/toaster"
 import Navbar from "@/components/Navbar";
 
 const geistSans = localFont({
-  src: "../fonts/GeistVF.woff",
+  src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
 const geistMono = localFont({
-  src: "../fonts/GeistMonoVF.woff",
+  src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
 });
@@ -26,12 +29,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <AuthProvider>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar/>
         {children}
+        <Toaster/>
       </body>
+      </AuthProvider>
     </html>
   );
 }
